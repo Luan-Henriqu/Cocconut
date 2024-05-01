@@ -1,0 +1,95 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css"> 
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+	<script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
+        <script>
+            function GerarCódigoDeBarras(elementoInput){
+                /*A função JsBarcode não aceita string vazia*/
+                if(!elementoInput.value){
+                    elementoInput.value = 0;
+                }
+                JsBarcode('#codBarras', elementoInput.value);
+            }
+        </script>
+    <title>Switch</title>
+	
+</head>
+<body>
+    <form>
+        <h1>Cadastro de Switch</h1>
+        <h3>Complete as informações:</h3>
+        <p> 
+            Nome do switch:
+            <input type="text" name="Nome" id="Nome"  required>
+       </p>
+
+       <p> 
+            ID do switch:
+            <input type="text" name="idswitch" id="idswitch"  required>
+       </p>
+
+       <p>
+            Modelo:
+            <input type="text" name="Modelo" id="Modelo" required>
+
+       </p>
+
+       <p>
+            Marca:
+             <input type="text" name="Marca" id="Marca"  required >
+       </p>
+
+       <p>
+            Cor:
+            <input type="text" name="cor" id="cor" required>
+       </p>
+
+       <p>
+            Quantidade de portas:
+            <input type="number" name="portas" id="portas" required min="0">
+       </p>
+
+       <p>
+            Voltagem:
+            <input type="number" name="Voltagem" id="Voltagem" required>
+       </p>
+
+       <p>
+            Status:
+            <select name="Status" id="Status">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+            </select>
+       </p>
+
+       <p>
+            Velocidade:
+            <input type="text" name="Velocidade" id="Velocidade" required>
+       </p>
+       
+       <p>
+            Data de instalação:
+            <input type="date" name="instalação" id="instalação">
+       </p>
+
+       <p>
+            Descrição: <br>
+            <textarea name="Descrição" id="Descrição" required> </textarea>
+            <br>
+            
+       </p>
+	    <p>   Digite um valor:
+        <input type="text" onblur="GerarCódigoDeBarras(this)"/>
+        <br><svg id="codBarras"></svg>
+		<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+		</p>
+          <input type="submit" name="botao" id="botao" value="Cadastrar Switch" ><br>
+          <input type="reset" name="limpar" id="limpar" value="Limpar" ><br>
+          <input type="button" value="Voltar" onclick="history.back()">
+    </form>
+    
+</body>
+</html>

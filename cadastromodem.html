@@ -1,0 +1,80 @@
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="logo.png" type="image/x-icon">
+	<script src="https://cdn.jsdelivr.net/jsbarcode/3.6.0/JsBarcode.all.min.js"></script>
+        <script>
+            function GerarCódigoDeBarras(elementoInput){
+                /*A função JsBarcode não aceita string vazia*/
+                if(!elementoInput.value){
+                    elementoInput.value = 0;
+                }
+                JsBarcode('#codBarras', elementoInput.value);
+            }
+        </script>
+    <title>Modem</title>
+</head>
+<body>
+    
+    <form>
+        <h1>Cadastro de modem</h1>
+        <h3>Complete as informações:</h3>
+       <p> 
+            Nome do modem:
+            <input type="text" name="nome" id="nome"  required>
+       </p>
+
+       <p>
+            Modelo:
+            <input type="text" name="Modelo" id="Modelo" required>
+       </p>
+       
+       <p>
+            Cor:
+            <input type="text" name="cor" id="cor" required>
+       </p>
+
+       <p>
+            Tipo de Conexão:
+            <input type="text" name="Conexão" id="Conexão"  required >
+       </p>
+
+       <p>
+            Quantidade de portas:
+            <input type="number" name="portas" id="portas" required min="0">
+       </p>
+
+       <p>
+            País de origem:
+            <input type="text" name="país" id="país" required>
+       </p>
+
+       <p>
+            Endereço MAC:
+            <input type="text" name="Endereço" id="Endereço" required >
+       </p>
+
+       <p>
+            ISP:
+            <input type="text" name="isp" id="isp" required>
+       </p>
+
+       <p>
+            Descrição <br>
+            <textarea name="Descrição" id="Descrição" required> </textarea>
+            <br>
+             
+       </p>
+	   <p>   Digite um valor:
+           <input type="text" onblur="GerarCódigoDeBarras(this)" maxlength="20"/>
+           <br><svg id="codBarras"></svg>
+		   <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+	   </p>
+	        <input type="submit" name="botao" id="botao" value="Cadastrar modem" ><br>
+            <input type="reset" name="limpar" id="limpar" value="Limpar" ><br>
+            <input type="button" value="Voltar" onclick="history.back()">
+    </form>
+</body>
+</html>
